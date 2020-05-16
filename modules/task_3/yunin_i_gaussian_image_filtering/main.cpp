@@ -16,16 +16,15 @@ TEST(Gaussian_Image_Filtering_seq, Can_Filter_Small_Image) {
 }
 
 TEST(Gaussian_Image_Filtering_seq, Can_Handle_Images_With_Width_Less_Than_Kernel_Size) {
-    const int width = 4;
+    const int width = 3;
     const int height = 2;
-    uint8_t img[2 * 4];
-    uint8_t res[2 * 4];
-    uint8_t ans[8] = {31, 63, 31, 0, 15, 31, 15, 0 };
+    uint8_t img[2 * 3];
+    uint8_t res[2 * 3];
+    uint8_t ans[8] = {31, 63, 31, 15, 31, 15 };
     for (int i = 0; i < width * height; ++i) {
         img[i] = 0;
     }
     img[1] = 255;
-    generate_random_image(img , width, height);
     apply_filter(img, res, width, height);
     for (int i = 0; i < width * height; ++i) {
         ASSERT_EQ(res[i], ans[i]);
@@ -42,7 +41,6 @@ TEST(Gaussian_Image_Filtering_seq, Can_Handle_Images_With_Height_Less_Than_Kerne
         img[i] = 0;
     }
     img[3] = 255;
-    generate_random_image(img , width, height);
     apply_filter(img, res, width, height);
     for (int i = 0; i < width * height; ++i) {
         ASSERT_EQ(res[i], ans[i]);
