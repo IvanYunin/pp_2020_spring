@@ -64,7 +64,6 @@ TEST(Gaussian_Image_Filtering_omp, is_correct_for3x3) {
     }
     delete img;
     delete res;
-    delete ans;
 }
 
 int main(int argc, char** argv) {
