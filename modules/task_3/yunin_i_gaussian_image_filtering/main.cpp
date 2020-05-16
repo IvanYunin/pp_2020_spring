@@ -13,6 +13,8 @@ TEST(Gaussian_Image_Filtering_tbb, Can_Filter_Small_Image) {
     for (int i = 0; i < width * height; ++i) {
         ASSERT_NE(res[i], img[i]);
     }
+    delete img;
+    delete res;
 }
 
 TEST(Gaussian_Image_Filtering_tbb, Can_Handle_Images_With_Width_Less_Than_Kernel_Size) {
@@ -26,6 +28,8 @@ TEST(Gaussian_Image_Filtering_tbb, Can_Handle_Images_With_Width_Less_Than_Kernel
     for (int i = 0; i < width * height; ++i) {
         ASSERT_NE(res[i], img[i]);
     }
+    delete img;
+    delete res;
 }
 
 TEST(Gaussian_Image_Filtering_tbb, Can_Handle_Images_With_Height_Less_Than_Kernel_Size) {
@@ -39,6 +43,8 @@ TEST(Gaussian_Image_Filtering_tbb, Can_Handle_Images_With_Height_Less_Than_Kerne
     for (int i = 0; i < width * height; ++i) {
         ASSERT_NE(res[i], img[i]);
     }
+    delete img;
+    delete res;
 }
 
 TEST(Gaussian_Image_Filtering_tbb, is_correct_for3x3) {
@@ -56,6 +62,9 @@ TEST(Gaussian_Image_Filtering_tbb, is_correct_for3x3) {
     for (int i = 0; i < width * height; ++i) {
         ASSERT_EQ(res[i], ans[i]);
     }
+    delete img;
+    delete res;
+    delete ans;
 }
 
 int main(int argc, char** argv) {
