@@ -6,8 +6,8 @@
 TEST(Gaussian_Image_Filtering_seq, Can_Filter_Small_Image) {
     const int width = 10;
     const int height = 10;
-    uint8_t img[width * height];
-    uint8_t res[width * height];
+    uint8_t img[10 * 10];
+    uint8_t res[10 * 10];
     generate_random_image(img , width, height);
     apply_filter(img, res, width, height);
     for (int i = 0; i < width * height; ++i) {
@@ -18,8 +18,8 @@ TEST(Gaussian_Image_Filtering_seq, Can_Filter_Small_Image) {
 TEST(Gaussian_Image_Filtering_seq, Can_Handle_Images_With_Width_Less_Than_Kernel_Size) {
     const int width = 2;
     const int height = 50;
-    uint8_t img[width * height];
-    uint8_t res[width * height];
+    uint8_t img[2 * 50];
+    uint8_t res[2 * 50];
 
     generate_random_image(img , width, height);
     apply_filter(img, res, width, height);
@@ -31,8 +31,8 @@ TEST(Gaussian_Image_Filtering_seq, Can_Handle_Images_With_Width_Less_Than_Kernel
 TEST(Gaussian_Image_Filtering_seq, Can_Handle_Images_With_Height_Less_Than_Kernel_Size) {
     const int width = 50;
     const int height = 2;
-    uint8_t img[width * height];
-    uint8_t res[width * height];
+    uint8_t img[2 * 50];
+    uint8_t res[2 * 50];
     generate_random_image(img , width, height);
     apply_filter(img, res, width, height);
     for (int i = 0; i < width * height; ++i) {
@@ -43,8 +43,8 @@ TEST(Gaussian_Image_Filtering_seq, Can_Handle_Images_With_Height_Less_Than_Kerne
 TEST(Gaussian_Image_Filtering_seq, is_correct_for3x3) {
     const int width = 3;
     const int height = 3;
-    uint8_t img[width * height];
-    uint8_t res[width * height];
+    uint8_t img[3 * 3];
+    uint8_t res[3 * 3];
     uint8_t ans[9] = { 15, 31, 15, 31, 63, 31, 15, 31, 15};
     for (int i = 0; i < width * height; ++i) {
         img[i] = 0;
