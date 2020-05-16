@@ -15,7 +15,7 @@ TEST(Gaussian_Image_Filtering_seq, Can_Filter_Small_Image) {
     }
 }
 
-TEST(Gaussian_Image_Filtering_seq, Can_Handle_Images_With_Width_Less_Than_Kernel_Size) {
+TEST(Gaussian_Image_Filtering_omp, Can_Handle_Images_With_Width_Less_Than_Kernel_Size) {
     const int width = 2;
     const int height = 50;
 
@@ -28,7 +28,7 @@ TEST(Gaussian_Image_Filtering_seq, Can_Handle_Images_With_Width_Less_Than_Kernel
     }
 }
 
-TEST(Gaussian_Image_Filtering_seq, Can_Handle_Images_With_Height_Less_Than_Kernel_Size) {
+TEST(Gaussian_Image_Filtering_omp, Can_Handle_Images_With_Height_Less_Than_Kernel_Size) {
     const int width = 50;
     const int height = 2;
 
@@ -41,7 +41,7 @@ TEST(Gaussian_Image_Filtering_seq, Can_Handle_Images_With_Height_Less_Than_Kerne
     }
 }
 
-TEST(Gaussian_Image_Filtering_seq, is_correct_for3x3) {
+TEST(Gaussian_Image_Filtering_omp, is_correct_for3x3) {
     const int width = 3;
     const int height = 3;
 
