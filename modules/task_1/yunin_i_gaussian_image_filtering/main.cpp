@@ -16,27 +16,36 @@ TEST(Gaussian_Image_Filtering_seq, Can_Filter_Small_Image) {
 }
 
 TEST(Gaussian_Image_Filtering_seq, Can_Handle_Images_With_Width_Less_Than_Kernel_Size) {
-    const int width = 2;
-    const int height = 50;
-    uint8_t img[2 * 50];
-    uint8_t res[2 * 50];
-
+    const int width = 4;
+    const int height = 2;
+    uint8_t img[2 * 4];
+    uint8_t res[2 * 4];
+    uint8_t ans[8] = {31, 63, 31, 0, 15, 31, 15, 0 };
+    for (int i = 0; i < width * height; ++i) {
+        img[i] = 0;
+    }
+    img[1] = 255;
     generate_random_image(img , width, height);
     apply_filter(img, res, width, height);
     for (int i = 0; i < width * height; ++i) {
-        ASSERT_NE(res[i], img[i]);
+        ASSERT_EQ(res[i], ans[i]);
     }
 }
 
 TEST(Gaussian_Image_Filtering_seq, Can_Handle_Images_With_Height_Less_Than_Kernel_Size) {
-    const int width = 50;
-    const int height = 2;
-    uint8_t img[2 * 50];
-    uint8_t res[2 * 50];
+    const int width = 2;
+    const int height = 4;
+    uint8_t img[2 * 4];
+    uint8_t res[2 * 4];
+    uint8_t ans[8] = { 15, 31, 31, 63, 15, 31, 0, 0 };
+    for (int i = 0; i < width * height; ++i) {
+        img[i] = 0;
+    }
+    img[3] = 255;
     generate_random_image(img , width, height);
     apply_filter(img, res, width, height);
     for (int i = 0; i < width * height; ++i) {
-        ASSERT_NE(res[i], img[i]);
+        ASSERT_EQ(res[i], ans[i]);
     }
 }
 
